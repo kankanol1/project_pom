@@ -60,7 +60,6 @@ const DingApp = props => {
       ]);
       item.width = "200px";
     }
-
     if (item.valueType === "date") {
       item.render = (text, row, index, action) => {
         return <div key={item.dataIndex}>
@@ -98,34 +97,40 @@ const DingApp = props => {
     }
     if (item.valueType === "select") {
       item.render = (text, row, index, action) => {
+        console.log(text);
         const options = columns.filter(i => i.valueType === "select")[0]["options"];
         return <div key={item.dataIndex} style={{backgroundColor: '#fff'}}>
-          <Select
+          {text && <Select
             showSearch
             defaultValue={Object.values(text)}
             style={{width: 100}}
             onChange={(value, option) => {
-              row[item.dataIndex] = value;
-              onChangeItem(row);
-              setSelect(value);
+              if(value){
+                row[item.dataIndex] = value;
+                onChangeItem(row);
+                setSelect(value);
+              }
             }}
             onBlur={() => {
-              row[item.dataIndex] = select;
-              select&&onChangeItemE(row);
+              if(select&&options.filter(f=>Object.values(f)===select)[0]){
+                row[item.dataIndex] = select;
+                onChangeItemE(row);
+              }
             }}
             filterOption={true}
             showArrow={false}
             bordered={false}
+            listHeight={100}
           >
-            {options.map(j =>
+            {options&&options.map(j =>
               <Option
-                key={Object.values(j)[0]}
+                key={Object.keys(j)[0]}
                 value={Object.values(j)[0]}
               >
                 {Object.values(j)[0]}
               </Option>)
             }
-          </Select>
+          </Select>}
         </div>;
       }
     }

@@ -1,17 +1,17 @@
-import {getTableData,onChangeItemE} from "./service";
+import {getTableData, onChangeItemE} from "./service";
 
 const Model = {
   namespace: 'dynamicSpace',
   state: {
-      columns:[],
-      data:[],
-    layout:[]
+    columns: [],
+    data: [],
+    layout: []
   },
-  effects:{
+  effects: {
     * get({callback}, {call, put}) {
       const response = yield call(getTableData);
-      if(callback&&typeof callback==='function'){
-        callback({status:'ok'});
+      if (callback && typeof callback === 'function') {
+        callback({status: 'ok'});
       }
       yield put({
         type: 'change',
@@ -19,8 +19,8 @@ const Model = {
       });
     },
     * changeItemE({payload}, {call, put}) {
-      const response = yield call(onChangeItemE,payload);
-      if(response.status==="ok"){
+      const response = yield call(onChangeItemE, payload);
+      if (response.status === "ok") {
         const response = yield call(getTableData);
         yield put({
           type: 'change',
@@ -29,12 +29,12 @@ const Model = {
       }
     },
   },
-  reducers:{
+  reducers: {
     change(state, {payload}) {
-      return {...state,...payload};
+      return {...state, ...payload};
     },
     changeItem(state, {payload}) {
-      return {...state,data:state.data.map(item=>item.key===payload.key?payload:item)};
+      return {...state, data: state.data.map(item => item.key === payload.key ? payload : item)};
     },
 
   }

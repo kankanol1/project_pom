@@ -1,6 +1,17 @@
 import Mock from "mockjs";
 import React from "react";
 
+const options =  [
+  {swimming: "游泳"},
+  {skiting: "滑冰"},
+  {running: "跑步"},
+  {pingpang: "乒乓球"},
+  {bascketball: "打篮球"},
+  {bascketball1: "打篮球1"},
+  {bascketball2: "打篮球2"},
+  {bascketball3: "打篮球3"},
+  {bascketball4: "打篮球5"},
+];
 const columns = [
   {
     title: '标号',
@@ -42,13 +53,7 @@ const columns = [
     dataIndex: 'fancy',
     valueType: 'select',
     hideInSearch: true,
-    options: [
-      {swimming: "游泳"},
-      {skiting: "滑冰"},
-      {running: "跑步"},
-      {pingpang: "乒乓球"},
-      {bascketball: "打篮球"},
-    ],
+    options,
   },
   {
     title: '操作',
@@ -56,8 +61,8 @@ const columns = [
     dataIndex: 'option',
   }
 ];
-let data = Array(5)
-  .fill(0, 0, 5)
+let data = Array(20)
+  .fill(0, 0, 20)
   .map((item, i) => {
     return Mock.mock(
       {
@@ -65,21 +70,16 @@ let data = Array(5)
         "name": Mock.mock('@cname(3,4)'),
         "age|1-100": 100,
         "world": Mock.mock('@ctitle(10, 20)'),
-        "fancy|1": [
-          {swimming: "游泳"},
-          {skiting: "滑冰"},
-          {running: "跑步"},
-          {pingpang: "乒乓球"},
-        ],
+        "fancy|1":options,
         "date": Mock.mock('@now("yyyy-MM-dd")'),
       }
     )
   });
 
+
 const getTestData = (req, res) => {
   return res.json({columns, data, layout: [8, 10]});
 }
-
 const onChangeItemE = (req, res) => {
   const payload = req.query;
   data = data.map(item => item.key + '' === payload.key + '' ? payload : item);
