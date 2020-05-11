@@ -13,8 +13,6 @@ const CodePreview = ({ children }) => (
 
 export default () => (
   <PageHeaderWrapper>
-    <Card>
-      Hello GranLand BO
-    </Card>
+    <Card>Hello GranLand BO</Card>
   </PageHeaderWrapper>
 );

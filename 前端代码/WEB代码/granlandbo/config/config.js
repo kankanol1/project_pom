@@ -40,10 +40,10 @@ const plugins = [
           }
         : false, // default close dll, because issue https://github.com/ant-design/ant-design-pro/issues/4665
       // dll features https://webpack.js.org/plugins/dll-plugin/
-      // dll: {
-      //   include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
-      //   exclude: ['@babel/runtime', 'netlify-lambda'],
-      // },
+      dll: {
+        include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
+        exclude: ['@babel/runtime', 'netlify-lambda'],
+      },
     },
   ],
   [
@@ -56,6 +56,7 @@ const plugins = [
     },
   ],
 ];
+
 
 if (isAntDesignProPreview) {
   // 针对 preview.pro.ant.design 的 GA 统计代码
@@ -94,14 +95,52 @@ export default {
       ],
     },
     {
+      path: '/layout',
+      component: './Layout',
+      name:'layout',
+
+    },
+    {
       path: '/',
       component: '../layouts/SecurityLayout',
       routes: [
+
         {
           path: '/',
           component: '../layouts/BasicLayout',
           authority: ['admin', 'user'],
           routes: [
+            {
+              name: 'test',
+              icon: 'table',
+              path: '/ding',
+              component: './ding',
+            },
+            {
+              name: 'ws',
+              icon: 'table',
+              path: '/ws',
+              component: './WebsocketTest',
+
+            },
+            {
+              name: 'test',
+              icon: 'table',
+              path: '/chat',
+              component: './chatroom',
+            },
+            {
+              path: '/data',
+              name: 'data',
+              icon: 'smile',
+              component: './data',
+            },
+            {
+              path: '/context',
+              name: 'context',
+              icon: 'smile',
+              component: './createContxt',
+            },
             {
               path: '/',
               redirect: '/welcome',
@@ -111,6 +150,12 @@ export default {
               name: 'welcome',
               icon: 'smile',
               component: './Welcome',
+            },
+            {
+              path: '/getpost',
+              name: 'javatest',
+              icon: 'smile',
+              component: './javaTest',
             },
             {
               path: '/admin',
@@ -134,6 +179,7 @@ export default {
               path: '/list',
               component: './ListTableList',
             },
+
 
             {
               path: '/test',
@@ -192,7 +238,7 @@ export default {
                   name: 'apple',
                   icon: 'apple',
                   component: './test/apple',
-                }
+                },
               ],
             },
             {
@@ -210,14 +256,16 @@ export default {
     },
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
-  theme: {
+  /*theme: {
     // ...darkTheme,
     'primary-color': defaultSettings.primaryColor,
-  },
+  },*/
   define: {
     REACT_APP_ENV: REACT_APP_ENV || false,
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
-      ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION || '', // preview.pro.ant.design only do not use in your production ; preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
+      ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION || '',
+    // preview.pro.ant.design only do not use in your production ;
+    // preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
   },
   ignoreMomentLocale: true,
   lessLoaderOptions: {
@@ -250,7 +298,7 @@ export default {
     },
   },
   manifest: {
-    basePath: '/',
+    basePath: './',
   },
   proxy: proxy[REACT_APP_ENV || 'dev'],
   chainWebpack: webpackPlugin,

@@ -1,10 +1,12 @@
-import {Component} from 'react';
+import { Component } from 'react';
 
-class Apple extends Component{
-  render(){
-    return(
-      <div>Page Apple</div>
-    )
+class Apple extends Component {
+  render() {
+    return (
+      <div>
+        Page Apple
+      </div>
+    );
   }
 }
 

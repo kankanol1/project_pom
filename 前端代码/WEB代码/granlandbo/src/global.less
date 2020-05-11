@@ -1,5 +1,6 @@
 @import '~antd/es/style/themes/default.less';
 
+
 html,
 body,
 #root {
@@ -9,6 +10,7 @@ body,
 .colorWeak {
   filter: invert(80%);
 }
+
 
 .ant-layout {
   min-height: 100vh;
@@ -51,4 +53,51 @@ ol {
   body .ant-design-pro > .ant-layout {
     min-height: 100vh;
   }
+}
+
+
+// 添加样式覆盖
+.ant-pro-table-search{
+  margin-bottom: 0 !important;
+  padding-top: 12px;
+}
+.ant-table-wrapper{
+  border: 1px solid #eee;
+}
+.ant-table-content thead>tr>th{
+  background-color: #fafafa !important;
+  //background-color: #2f54eb !important;
+}
+
+
+
+// 重置滚动条样式
+::-webkit-scrollbar,
+.scroll-context::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #535353;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  background: #EDEDED;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.ant-modal-content {
+  //.ant-modal-header {}
+  //.ant-modal-body {}
+  .ant-modal-footer {
+    text-align: center;
+  }
+}
+
+.hover-style:hover{
+  box-shadow: 0 0 20px #ccc;
+  transform: translateY(-3px);
+  transition: all .2s linear;
 }

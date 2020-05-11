@@ -1,13 +1,14 @@
-import {Component} from 'react';
+import { Component } from 'react';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
-class TestPage extends Component{
-  render(){
-    const {children} =this.props;
-    return(
+
+class TestPage extends Component {
+  render() {
+    const { children } = this.props;
+    return (
       <PageHeaderWrapper>
         {children}
       </PageHeaderWrapper>
-    )
+    );
   }
 }
 

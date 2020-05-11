@@ -9,6 +9,15 @@ export default {
   dev: {
     '/api/': {
       target: 'https://preview.pro.ant.design',
+      // target: 'http://localhost:8080/',
+      changeOrigin: true,
+      pathRewrite: {
+        '^': '',
+      },
+    },
+    '/ws/': {
+      target: 'http://192.168.1.125:8887',
+      // target: 'http://localhost:8080/',
       changeOrigin: true,
       pathRewrite: {
         '^': '',
@@ -17,16 +26,18 @@ export default {
   },
   test: {
     '/api/': {
-      target: 'https://preview.pro.ant.design',
+      // target: 'https://preview.pro.ant.design',
+      target: 'http://localhost:8080/',
       changeOrigin: true,
       pathRewrite: {
         '^': '',
       },
     },
+
   },
   pre: {
     '/api/': {
-      target: 'your pre url',
+      target: 'http://192.168.0.108:8080/',
       changeOrigin: true,
       pathRewrite: {
         '^': '',

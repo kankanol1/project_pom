@@ -50,6 +50,7 @@ export default {
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
   'menu.test': '测试',
+  'menu.test.test': '测试',
   'menu.test.github': 'Github',
   'menu.test.dingding': '钉钉',
   'menu.test.android': '安卓',
@@ -59,4 +60,9 @@ export default {
   'menu.test.github.allcomponents': '功能组件预览',
   'menu.test.github.detail.detail1': '组件一',
   'menu.test.github.detail.detail2': '组件二',
+  'menu.theme': '主题',
+  'menu.context': '生产消费',
+  'menu.data': 'Data测试',
+  'menu.javatest': 'Data测试',
+  'menu.ws': 'WS测试',
 };
