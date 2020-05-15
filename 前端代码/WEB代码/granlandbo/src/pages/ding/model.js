@@ -33,6 +33,20 @@ const Model = {
     change(state, {payload}) {
       return {...state, ...payload};
     },
+    filter(state, {payload}) {
+      return {
+        ...state,
+        data: state.data.filter(item =>{
+          return item[payload.dataIndex]=== payload.value
+        })
+      }
+    },
+    delete(state, {payload}) {
+      return {
+        ...state,
+        data: state.data.filter(item =>item.key!== payload.key)
+      }
+    },
     changeItem(state, {payload}) {
       return {...state, data: state.data.map(item => item.key === payload.key ? payload : item)};
     },

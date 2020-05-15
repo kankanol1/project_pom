@@ -10,7 +10,7 @@ const options =  [
   {bascketball1: "打篮球1"},
   {bascketball2: "打篮球2"},
   {bascketball3: "打篮球3"},
-  {bascketball4: "打篮球5"},
+  {bascketball4: "打篮球5"}
 ];
 const columns = [
   {
@@ -75,7 +75,6 @@ let data = Array(20)
       }
     )
   });
-
 
 const getTestData = (req, res) => {
   return res.json({columns, data, layout: [8, 10]});

@@ -8,10 +8,11 @@ import React, {useState} from 'react'
 import {Modal, Button, Row, Col} from 'antd';
 
 const ModalComponent = props => {
-  const {details, columns, title, layout, child} = props;
+  const {details, columns, title, layout, child,children} = props;
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 
+  // const setRow = {...details,fancy:Object.values(details.fancy)[0]}
   // 提交
   const handleOk = () => {
     setLoading(true)
@@ -54,7 +55,9 @@ const ModalComponent = props => {
 
   return (
     <>
-      {childNode(child)}
+      {<a onClick={()=>setVisible(true)}>
+        {children}{title}
+      </a>}
       <Modal
         visible={visible}
         title={title}
@@ -62,9 +65,9 @@ const ModalComponent = props => {
         onCancel={()=>setVisible(false)}
         footer={footerArray(title)}
       >
-        {columns && columns.filter(j => j.valueType !== "option").map((item ,i)=> <Row key={i}>
+        {columns&&details && columns.filter(j => j.valueType !== "option").map((item ,i)=> <Row key={i}>
           <Col span={layout[0]}>{item.title}:</Col>
-          <Col span={layout[1]}>{details? details[item.dataIndex]:""}</Col>
+          <Col span={layout[1]}>{details[item.dataIndex]}</Col>
         </Row>)}
       </Modal>
     </>

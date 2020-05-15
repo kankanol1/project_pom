@@ -65,4 +65,5 @@ export default {
   'menu.data': 'Data测试',
   'menu.javatest': 'Data测试',
   'menu.ws': 'WS测试',
+  'menu.new': '新手指导',
 };

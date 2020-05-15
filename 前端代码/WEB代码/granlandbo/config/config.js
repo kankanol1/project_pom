@@ -115,6 +115,11 @@ export default {
               icon: 'table',
               path: '/ding',
               component: './ding',
+            },{
+              name: 'new',
+              icon: 'table',
+              path: '/intro',
+              component: './intro',
             },
             {
               name: 'ws',
