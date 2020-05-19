@@ -9,7 +9,6 @@ import { RouteContext } from '@ant-design/pro-layout';
 import { getMenuData } from '@ant-design/pro-layout';
 import { getPageTitle } from '@ant-design/pro-layout';
 const { breadcrumb, menuData } = getMenuData(
-  routes,
   menu,
   formatMessage,
   menuDataRender,

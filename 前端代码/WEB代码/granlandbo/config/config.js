@@ -120,6 +120,11 @@ export default {
               icon: 'table',
               path: '/intro',
               component: './intro',
+            },{
+              name: 'tabs',
+              icon: 'table',
+              path: '/tabs',
+              component: './tabs',
             },
             {
               name: 'ws',

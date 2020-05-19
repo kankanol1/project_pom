@@ -7,7 +7,9 @@ const Model = {
   },
   effects: {
     * fetch(_, {call, put}) {
+      console.log("model");
       const response = yield call(getData);
+      console.log("model",response);
       yield put({
         type: 'get',
         payload: response,

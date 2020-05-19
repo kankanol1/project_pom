@@ -106,7 +106,7 @@ const DingApp = props => {
       </span>*/}
     </h4>
     <div>
-      {data.length && columns.length && <div id="glTable">
+      {data.length &&columns&& columns.length && <div id="glTable">
         <div className={styles["gl-setting"]}>
           <Tooltip title={"密度"} className={styles["gl-full"]}>
             <Popover
